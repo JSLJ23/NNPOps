@@ -33,7 +33,14 @@
       # Development environment output
       devShells = forAllSystems ({ pkgs }: {
         built = pkgs.mkShell {
-          buildInputs = [ (pkgs.python3.withPackages (pkgs: [ self.packages.x86_64-linux.nnpops-python ])) ];
+          packages = [
+            (pkgs.python3.withPackages
+              (pkgs: [
+                self.packages.x86_64-linux.nnpops-python
+                ]
+              )
+            )
+          ];
 
           shellHook = "
           echo 'You are in a nix shell'
