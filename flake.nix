@@ -90,6 +90,7 @@
             preConfigure = ''
               export CUDA_HOME=${pkgs.cudaPackages.cudatoolkit}
               export CUDA_LIB=${pkgs.cudaPackages.cudatoolkit.lib}
+              export PYTHON_INSTALL_PATH=$out/${pkgs.python3.sitePackages}
             '';
             propagatedBuildInputs = [
               pkgs.cudaPackages.cudatoolkit
